@@ -1,0 +1,45 @@
+customer
+order
+product
+
+1 customer to many orders
+
+many orders to many products
+
+
+CUSTOMER (many to many with ADDRESS, many to many with ORDER)
+------------
+firstName
+lastName
+username
+password
+email
+phone
+addressID
+streenNumber
+Apt#
+
+ADDRESS (many to many with ZIPSTATE)
+------------
+roadName
+cityName
+zipStateID
+
+ZIPSTATE
+------------
+stateName
+
+ORDER (many to many with CUSTOMER, many to many with PRODUCT)
+------------
+customerID
+productID
+dateTimePlaced
+
+PRODUCT
+------------
+itemNumber
+itemName
+itemPic
+itemShortDesc
+itemFullDesc
+itemCost
