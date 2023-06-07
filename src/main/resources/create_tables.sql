@@ -1,13 +1,11 @@
-create table zipstate (
-    zipStateId serial primary key,
-    stateName varchar(100) unique and not null
-);
-
 create table address (
     addressId serial primary key,
+    streetNumber varchar(30) not null,
+    apartmentNumber varchar(10),
     roadName varchar(150) not null,
     cityName varchar(150),
-    zipStateId integer not null references zipstate (zipStateId)
+    zipCode varchar(15) not null,
+    stateName varchar(100) not null
 );
 
 create table customer (
@@ -37,4 +35,9 @@ create table order (
     customerId integer not null references customer (customerId),
     productId integer not null references product (productId),
     timestampWhenPlaced timestamp not null default current_timestamp
+);
+
+create table customer_addresses (
+    customerId integer not null references customer (customerId),
+    addressId integer not null references address (addressId)
 );
